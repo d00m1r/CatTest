@@ -10,7 +10,6 @@
 		225CCF47273423B1001B3D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CCF46273423B1001B3D19 /* AppDelegate.swift */; };
 		225CCF49273423B1001B3D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CCF48273423B1001B3D19 /* SceneDelegate.swift */; };
 		225CCF4B273423B1001B3D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CCF4A273423B1001B3D19 /* ViewController.swift */; };
-		225CCF4E273423B1001B3D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225CCF4C273423B1001B3D19 /* Main.storyboard */; };
 		225CCF50273423B3001B3D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225CCF4F273423B3001B3D19 /* Assets.xcassets */; };
 		225CCF53273423B3001B3D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225CCF51273423B3001B3D19 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		225CCF46273423B1001B3D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		225CCF48273423B1001B3D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		225CCF4A273423B1001B3D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		225CCF4D273423B1001B3D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		225CCF4F273423B3001B3D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225CCF52273423B3001B3D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		225CCF54273423B3001B3D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,30 @@
 		225CCF45273423B1001B3D19 /* CatTest */ = {
 			isa = PBXGroup;
 			children = (
+				225CCF4A273423B1001B3D19 /* ViewController.swift */,
+				225CCF5A27342663001B3D19 /* Other */,
+				225CCF5B27342674001B3D19 /* Resources */,
+			);
+			path = CatTest;
+			sourceTree = "<group>";
+		};
+		225CCF5A27342663001B3D19 /* Other */ = {
+			isa = PBXGroup;
+			children = (
 				225CCF46273423B1001B3D19 /* AppDelegate.swift */,
 				225CCF48273423B1001B3D19 /* SceneDelegate.swift */,
-				225CCF4A273423B1001B3D19 /* ViewController.swift */,
-				225CCF4C273423B1001B3D19 /* Main.storyboard */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		225CCF5B27342674001B3D19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				225CCF4F273423B3001B3D19 /* Assets.xcassets */,
 				225CCF51273423B3001B3D19 /* LaunchScreen.storyboard */,
 				225CCF54273423B3001B3D19 /* Info.plist */,
 			);
-			path = CatTest;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +140,6 @@
 			files = (
 				225CCF53273423B3001B3D19 /* LaunchScreen.storyboard in Resources */,
 				225CCF50273423B3001B3D19 /* Assets.xcassets in Resources */,
-				225CCF4E273423B1001B3D19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		225CCF4C273423B1001B3D19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				225CCF4D273423B1001B3D19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		225CCF51273423B3001B3D19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -217,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -291,10 +295,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CY5ZK5KG8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CatTest/Info.plist;
+				INFOPLIST_FILE = CatTest/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -320,10 +324,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CY5ZK5KG8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CatTest/Info.plist;
+				INFOPLIST_FILE = CatTest/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
