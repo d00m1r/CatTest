@@ -66,6 +66,11 @@ final class CatTVC: UITableViewCell {
         )
     }
     
+//    override func prepareForReuse() {
+//        catImageView.image = nil
+//        super.prepareForReuse()
+//    }
+    
     private func configurate(){
         guard
             let catInfo = catInfo,
@@ -101,6 +106,14 @@ final class CatTVC: UITableViewCell {
 //                                  animations: {
 //                    strongSelf.catImageView.image = image
 //                }, completion: nil)
+                
+                // check if get current image or old, before reuse
+                // need update or not
+                if Int(strongSelf.catInfo?.height ?? -1) == Int(strongSelf.catImageView.image?.size.height ?? 0),
+                   Int(strongSelf.catInfo?.width ?? -1) == Int(strongSelf.catImageView.image?.size.width ?? 0){
+                    return
+                }
+                
                 strongSelf.catImageView.image = image
             }
         }
