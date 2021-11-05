@@ -10,6 +10,7 @@ import UIKit
 
 class CatNetworkService: NSObject{
     private let imageCache = ImageCache()
+    private var lock = NSLock()
     
     static let shared = CatNetworkService()
     
@@ -48,8 +49,10 @@ class CatNetworkService: NSObject{
     }
     
     func loadCatImage(url: URL, onCompletion: @escaping (UIImage?) -> Void){
-        if let image = self.imageCache.image(for: url){
+        self.lock.lock()
+        if let image = CatNetworkService.shared.imageCache.image(for: url){
             onCompletion(image)
+            self.lock.unlock()
             print("\n *** Get image from cache ***\n")
             return
         }
@@ -63,8 +66,9 @@ class CatNetworkService: NSObject{
                 return
             }
             if let image = UIImage(data: data){
-                self.imageCache.insertImage(image, for: url)
+                CatNetworkService.shared.imageCache.insertImage(image, for: url)
                 onCompletion(image)
+                self.lock.unlock()
             }
         }
         task.resume()

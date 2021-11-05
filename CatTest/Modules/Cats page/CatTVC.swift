@@ -10,6 +10,7 @@ import UIKit
 final class CatTVC: UITableViewCell {
     
     //MARK: - Properties
+    private let service = CatNetworkService()
     public var catInfo: Cat? {
         didSet{
             configurate()
@@ -43,7 +44,7 @@ final class CatTVC: UITableViewCell {
         return stack
     }()
     
-//    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .utility, attributes: .concurrent)
+    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .utility, attributes: .concurrent)
     
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -81,7 +82,9 @@ final class CatTVC: UITableViewCell {
         }
         self.titleLabel.text = "\(width) x \(height)"
         self.catImageView.image = UIImage(named: "placeholder")!
-        self.loadImage()
+        loadImageQueue.async { [weak self] in
+            self?.loadImage()
+        }
     }
     
     private func loadImage(){
@@ -92,29 +95,20 @@ final class CatTVC: UITableViewCell {
             return
         }
         
-        CatNetworkService.shared.loadCatImage(url: url) { image in
+        service.loadCatImage(url: url) { image in
             guard let image = image else {
                 return
             }
             DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else {
-                    return
-                }
-//                UIView.transition(with: strongSelf.catImageView,
+                
+//                UIView.transition(with: self?.catImageView,
 //                                  duration: 0.5,
 //                                  options: .transitionCrossDissolve,
 //                                  animations: {
-//                    strongSelf.catImageView.image = image
+//                    self?.catImageView.image = image
 //                }, completion: nil)
                 
-                // check if get current image or old, before reuse
-                // need update or not
-                if Int(strongSelf.catInfo?.height ?? -1) == Int(strongSelf.catImageView.image?.size.height ?? 0),
-                   Int(strongSelf.catInfo?.width ?? -1) == Int(strongSelf.catImageView.image?.size.width ?? 0){
-                    return
-                }
-                
-                strongSelf.catImageView.image = image
+                self?.catImageView.image = image
             }
         }
     }
