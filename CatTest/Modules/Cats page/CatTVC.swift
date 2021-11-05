@@ -44,7 +44,7 @@ final class CatTVC: UITableViewCell {
         return stack
     }()
     
-    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .userInteractive, attributes: .concurrent)
+    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .userInitiated, attributes: .concurrent)
     
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
