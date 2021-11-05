@@ -44,7 +44,7 @@ final class CatTVC: UITableViewCell {
         return stack
     }()
     
-    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .utility, attributes: .concurrent)
+    private let loadImageQueue = DispatchQueue(label: "imageLoadQueue", qos: .userInteractive, attributes: .concurrent)
     
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -66,11 +66,6 @@ final class CatTVC: UITableViewCell {
             paddingRight: Const.CatTVC.padding
         )
     }
-    
-//    override func prepareForReuse() {
-//        catImageView.image = nil
-//        super.prepareForReuse()
-//    }
     
     private func configurate(){
         guard
@@ -100,15 +95,17 @@ final class CatTVC: UITableViewCell {
                 return
             }
             DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else {
+                    return
+                }
+                UIView.transition(with: strongSelf.catImageView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                    strongSelf.catImageView.image = image
+                }, completion: nil)
                 
-//                UIView.transition(with: self?.catImageView,
-//                                  duration: 0.5,
-//                                  options: .transitionCrossDissolve,
-//                                  animations: {
-//                    self?.catImageView.image = image
-//                }, completion: nil)
-                
-                self?.catImageView.image = image
+//                self?.catImageView.image = image
             }
         }
     }

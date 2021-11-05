@@ -41,7 +41,6 @@ final class CatsViewController: UIViewController {
                 guard let strongSelf = self else {
                     return
                 }
-                print("UPDATE")
                 strongSelf.dataSource = TableViewDataSource(
                     models: strongSelf.viewModel.getCats(),
                     reuseIdentifier: CatTVC.typeName
